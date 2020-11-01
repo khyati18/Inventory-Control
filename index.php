@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Inventory-Control Application</title>
-</head>
-<body>
+<?php
+include 'config/db_connection.php';
 
-	Hello Everyone, Chai pee loo !
-
-</body>
-</html>
+$conn = OpenCon();
+echo "Connected Successfully. Stage 1 done";
+echo $conn->error;
+?>
