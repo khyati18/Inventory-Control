@@ -18,7 +18,7 @@ include 'config/db_connection.php';
 $conn = OpenCon();
 echo $conn->error;
 
-$sql = "SELECT id, name, price FROM items";
+$sql = "SELECT id, name, price FROM Items";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
