@@ -12,7 +12,7 @@ sudo cp -r /path_to_cloned_directory/Invetory-Control /opt/lampp/htdocs
 ```
 sudo /opt/lampp/lampp start
 ```
-4. On your browser open - [http://localhost:8000/Inventory-Control/](http://localhost:8000/Inventory-Control)
+4. On your browser open - [http://localhost/Inventory-Control/](http://localhost/Inventory-Control)
 
 
 ## Connecting to database
@@ -37,5 +37,10 @@ show databases;
 ```
 use inventory;
 ```
+6. Update your MySQL root user password in [db_connection.php](./config/db_connection.php)
 
-*For UI of database you can install Navicat.
+## Potential Errors
+
+1. Error: XAMPP: Starting Apache…fail 
+
+*Solution* - Restart Apache using `systemctl restart apache2.service`

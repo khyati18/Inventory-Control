@@ -2,30 +2,29 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="stylesheet" href="./css/style.css" type="text/css">
 </head>
 <body>
 
 <form action="action.php" method="POST">
-  <div class="container">
-    <h1>Inventory-Control</h1>
-    <p>Please enter you details.</p>
-    <hr>
+    <div class="container">
+        <h1>Inventory-Control</h1>
+        <p>Please enter your details.</p>
+        
+        <hr>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter email" name="email" id="email" required>
+        <label for="email"><b>User Email</b></label>
+        <input type="text" placeholder="Enter email" name="email" id="email" required>
 
-    <label for="user_id"><b>user-id</b></label>
-    <input type="password" placeholder="Enter user_id" name="user_id" id="user_id" required>
+        <br>
 
-    
-    <hr>
-    
+        <label for="user_id"><b>User Id &nbsp&nbsp&nbsp&nbsp&nbsp</b></label>
+        <input type="password" placeholder="Enter user_id" name="user_id" id="user_id" required>
 
-    <button type="submit" class="registerbtn" name="submit">Submit</button>
-  </div>
-  
- 
+        <hr>
+        
+        <button type="submit" class="registerbtn" name="submit">Submit</button>
+    </div>
 </form>
 
 </body>
