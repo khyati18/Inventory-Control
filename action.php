@@ -25,7 +25,7 @@ If(isset($_POST['submit'])) {
         if ($result->num_rows > 0) 
         {
           // output data of each row
-          header('Location: ./Inventorylist.html');
+          header('Location: ./Inventorylist.php');
           echo "WELCOME";
           echo "<br>";
           while($row = $result->fetch_assoc()) 
