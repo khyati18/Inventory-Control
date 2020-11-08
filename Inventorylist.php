@@ -55,7 +55,7 @@ else{
 <div>
   <center>
     <a href="./Cart.php">
-      <button class="bluebutton">Go to Cart</button>
+      <button class="checkoutbtn">Go to Cart</button>
     </a>
   </center>
 </div>
