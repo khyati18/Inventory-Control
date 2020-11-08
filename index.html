@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/style.css" type="text/css">
+<link rel="stylesheet" href="./css/styles.css" type="text/css">
 </head>
+
 <body>
 
-<form action="action.php" method="POST">
-    <div class="container">
-        <h1>Inventory-Control</h1>
+  <div class="container">
+    <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+        </label>
+  </div>
+  <div class="heading">
+    <h1>Inventory Control</h1>
+  </div>
+
+  <form action="action.php" method="POST">
+    <div class="container-main">
         <p>Please enter your details.</p>
         
         <hr>
@@ -25,7 +36,9 @@
         
         <button type="submit" class="registerbtn" name="submit">Submit</button>
     </div>
-</form>
+
+    </form>
+<script src="./js/script.js"></script>
 
 </body>
 </html>
