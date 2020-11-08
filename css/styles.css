@@ -260,3 +260,112 @@ input:checked + .slider:before {
     text-align: center;
     color: burlywood;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container-main {
+  margin: 200px;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 85%;
+  padding: 15px;
+  margin: 5px 0 22px 20px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: cadetblue;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+}
+th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: cadetblue;
+  color: black;
+}
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+margin-left: auto;
+margin-right: auto;
+width: 80%;
+}
+tr:hover{
+  background-color: #ddd;
+}
+
+td, th {
+border: 1px solid black;
+text-align: left;
+padding: 8px;
+}
+
+.bluebutton {
+background-color: white; 
+color: black; 
+border: 3px solid #008CBA;
+padding: 16px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+transition-duration: 0.4s;
+cursor: pointer;
+}
+
+.bluebutton:hover {
+background-color: #008CBA;
+color: white;
+}
