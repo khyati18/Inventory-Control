@@ -19,8 +19,9 @@
   <div class="heading">
     <h1>Inventory Control</h1>
   </div>
-
+  
   <section class="container2">
+  <!--
     <div class="dropdown" id="color">
       <select name="one" class="dropdown-select">
         <option value="1">Item 1</option>
@@ -43,7 +44,7 @@
     </div>
 
     <button style="margin-top: 40px">Add</button>
-
+  -->
     <div style="margin-top: 50px"x>
       <h1 style="color: darkcyan; font-size: 30px;">Cart</h1>
       <table style="text-align: center; width: 100%; color: goldenrod;">
