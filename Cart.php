@@ -19,7 +19,7 @@
   <div class="heading">
     <h1>Cart</h1>
   </div>
-
+  
   <section class="container2">
     
 

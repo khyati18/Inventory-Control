@@ -33,6 +33,7 @@ DROP TABLE IF EXISTS `Items`;
 CREATE TABLE `Items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
+  `company` varchar(100) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -45,7 +46,16 @@ CREATE TABLE `Items` (
 
 LOCK TABLES `Items` WRITE;
 /*!40000 ALTER TABLE `Items` DISABLE KEYS */;
-INSERT INTO `Items` VALUES (1,'Item1',100,500),(2,'Item2',500,100);
+INSERT INTO `Items` VALUES (1,'Acetylacetone','Alfa Aeser',100,50);
+INSERT INTO `Items` VALUES (2,'Benzaic Acid LR','SDFCL',200,50);
+INSERT INTO `Items` VALUES (3,'Benzoic acid','Sigma-Aldrich',300,50);
+INSERT INTO `Items` VALUES (4,'Camphorsulfonic acid','Sigma-Aldrich',300,50);
+INSERT INTO `Items` VALUES (5,'Dioctyl sulfosuccinate sodium salt','Sigma-Aldrich',300,50);
+INSERT INTO `Items` VALUES (6,'Ethanediol LR','SDFCL',400,50);
+INSERT INTO `Items` VALUES (7,'Glass Wool','Loba Chemie',400,50);
+INSERT INTO `Items` VALUES (8,'Hexanoic acid','Alfa Aeser',500,50);
+INSERT INTO `Items` VALUES (9,'Lauric acid','TCI',400,50);
+INSERT INTO `Items` VALUES (10,'Oxalic acid dihydrate','Merck',200,50);
 /*!40000 ALTER TABLE `Items` ENABLE KEYS */;
 UNLOCK TABLES;
 
