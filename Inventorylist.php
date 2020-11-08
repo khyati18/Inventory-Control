@@ -11,54 +11,80 @@
 
 <body>
 
-<?php
-include 'config/db_connection.php';
+<div class='container'>
+	<label id='switch' class='switch'>
+  		<input type='checkbox' onchange='toggleTheme()' id='slider'>
+  		<span class='slider round'></span>
+	</label>
+</div>
 
-$conn = OpenCon();
-echo $conn->error;
+<div class='heading'>
+	<h1>Inventory List</h1>
+</div>
 
-$sql = "SELECT id, name, company, price FROM Items";
-$result = $conn->query($sql);
+<form action='./Cart.php' method='post'>
 
-echo "<div class='container'>
-  <label id='switch' class='switch'>
-          <input type='checkbox' onchange='toggleTheme()' id='slider'>
-          <span class='slider round'></span>
-      </label>
-</div>";
+<table>
+	<colgroup>
+		<col width='15'>
+		<col width='500'>
+		<col width='200'>
+		<col width='125'>
+		<col width='140'>
+		<col width='100'>
+	</colgroup>
 
-echo "<div class='heading'>
-    <h1>Inventory List</h1>
-  </div>";
+	<tr>
+		<th>ID</th>
+		<th>Chemical Name</th>
+		<th>Company Name</th>
+		<th>Price (per gm)</th>
+		<th>Quantity (in gm)</th>
+		<th>Select</th>
+	</tr>
 
-if ($result->num_rows > 0) {
-  echo "<table><colgroup><col width='15'><col width='500'><col width='200'><col width='125'><col width='140'><col width='100'></colgroup>";
-  echo "<tr><th>ID</th><th>Chemical Name</th><th>Company Name</th><th>Price(per gm)</th><th>Quantity(in gm)</th><th><center>Select</center></th></tr>";
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>";
-    echo "<td>" . $row['name'] . "</td>";
-    echo "<td>" . $row['company'] . "</td>";
-    echo "<td><center>" . $row['price'] . "</center></td>";
-    echo "<td>" . "<center> <input  type='number' min='1' max='10000000' </center>" . "</td>";
-    echo "<td><center>" . "<input type='checkbox' />" . "</center></td>";
-    echo "</tr>";
-  }
-  echo "</table>";
-}
-else{
-  echo "NO results";
-}
-?>
+	<?php
+	include 'config/db_connection.php';
+
+	$conn = OpenCon();
+	echo $conn->error;
+
+	$sql = "SELECT id, name, company, price FROM Items";
+	$result = $conn->query($sql);
+
+	if ($result->num_rows > 0) 
+	{
+	  // output data of each row
+	  $count = 0;
+	  while($row = $result->fetch_assoc()) 
+	  {
+	  	$count++;
+	    echo "<tr>";
+	    echo "<td>" . $row['id'] . "</td>";
+	    echo "<td>" . $row['name'] . "</td>";
+	    echo "<td>" . $row['company'] . "</td>";
+	    echo "<td>" . $row['price'] . "</td>";
+	    echo "<td>" . "<input  type='number' min='1' max='10000000' name='quantity_$count' />" . "</td>";
+	    echo "<td>" . "<input type='checkbox' name='check_row_$count' />" . "</td>";
+	  }
+	}
+	else
+	{
+	  echo "Database Error";
+	}
+	?>
+
+</table>
+
 <br><br>
 <div>
-  <center>
-    <a href="./Cart.php">
-      <button class="checkoutbtn">Go to Cart</button>
-    </a>
-  </center>
+	<center>
+		<input class="checkoutbtn" type="submit" value="Go to Cart"/>
+	</center>
 </div>
+
+</form>
+
 <script src="./js/script.js"></script>
 
 </body>

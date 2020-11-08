@@ -26,20 +26,44 @@
     <div style="margin-top: 50px">
       <table style="text-align: center; width: 100%; color: steelgray;">
         <tr>
-          <th><h3>Item Name</h3></th>
+          <th><h3>Chemical Name</h3></th>
           <th><h3>Quantity</h3></th>
           <th><h3>Price</h3></th>
         </tr>
-        <tr>
-          <td>Item 1</td>
-          <td>50</td>
-          <td>200</td>
-        </tr>
-        <tr>
-          <td>Item 4</td>
-          <td>10</td>
-          <td>300</td>
-        </tr>
+        
+        <?php
+        include 'config/db_connection.php';
+
+        $conn = OpenCon();
+        echo $conn->error;
+
+        $sql = "SELECT id, name, company, price FROM Items";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) 
+        {
+          // output data of each row
+          $count = 0;
+          while($row = $result->fetch_assoc()) 
+          {
+            $count++;
+
+            if(isset($_POST["check_row_$count"]))
+            {
+              echo "<tr>";
+              echo "<td>" . $row['name'] . "</td>";
+              echo "<td>" . $_POST["quantity_$count"] . "</td>";
+              echo "<td>" . $row['price'] . "</td>";
+              echo "</tr>";
+            }
+          }
+        }
+        else
+        {
+          echo "Database Error";
+        }
+        ?>
+      
       </table>
     </div>
 
