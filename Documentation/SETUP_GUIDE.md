@@ -25,6 +25,7 @@ First Install MySQL locally
 mysql -u root -p
 ```
 (Enter your password)
+
 3. Add the database
 ```
 source > /path_to_git_directory/Inventory-Control/database.sql;
