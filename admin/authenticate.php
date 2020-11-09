@@ -1,5 +1,5 @@
 <?php
-include 'config/db_connection.php';
+include '../config/db_connection.php';
 
 $conn = OpenCon();
 echo $conn->error;
@@ -16,7 +16,7 @@ If(isset($_POST['submit'])) {
         if ($name == "admin" && $user_id == 0) 
         {
           // output data of each row
-          header('Location: ./home.php');
+          header('Location: http://localhost:8000/phpmyadmin/');
         } 
         else 
         {

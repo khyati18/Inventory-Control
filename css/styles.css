@@ -165,11 +165,11 @@ hr {
 .button {
   background-color: cadetblue;
   color: white;
-  padding: 16px 0;
-  margin: 2% 40%;
+  padding: 10px 0;
+  margin: 0.5% 30%;
   border: none;
   cursor: pointer;
-  width: 20%;
+  width: 40%;
   opacity: 0.9;
 }
 

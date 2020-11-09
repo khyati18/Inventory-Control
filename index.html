@@ -18,8 +18,8 @@
     <h1>Inventory Control</h1>
   </div>
 
-  <form action="action.php" method="POST">
-    <div class="container-main">
+  <div class="container-main">
+    <form action="action.php" method="POST">
         <p>Please enter your details.</p>
         
         <hr>
@@ -35,11 +35,9 @@
         <hr>
         
         <button type="submit" class="button" name="submit">Submit</button>
-        <div style="text-align: center; margin-top: 20px;">
-          <a href="admin.html" style="color: gray; font-size: 20px;">Login as Admin</a>
-        </div>
-      </div>
     </form>
+    <button onclick="window.location.href='./admin/admin.html'" class="button">Login as Admin</button>
+  </div>
 <script src="./js/script.js"></script>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
     <title>Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./css/styles.css" type="text/css">
+<link rel="stylesheet" href="../css/styles.css" type="text/css">
 </head>
 
 <body>
@@ -18,8 +18,8 @@
     <h1>Inventory Control</h1>
   </div>
 
-  <form action="authenticate.php" method="POST">
-    <div class="container-main">
+  <div class="container-main">
+    <form action="../admin/authenticate.php" method="POST">
         <p>Please enter your details.</p>
         
         <hr>
@@ -35,12 +35,10 @@
         <hr>
         
         <button type="submit" class="button" name="submit">Submit</button>
-        <div style="text-align: center; margin-top: 20px;">
-          <a href="index.html" style="color: gray; font-size: 20px;">Login as a normal user</a>
-        </div>
-      </div>
     </form>
-<script src="./js/script.js"></script>
+    <button onclick="window.location.href='../index.html'" class="button">Login as User</button>
+  </div>
+<script src="../js/script.js"></script>
 
 </body>
 </html>
