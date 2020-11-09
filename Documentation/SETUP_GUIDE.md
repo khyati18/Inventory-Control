@@ -42,27 +42,25 @@ use inventory;
 
 ## For Admin Only - Connect to phpmyadmin server 
 
-1. Install phpmyadmin
+1. Download phpmyadmin - [https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.zip](https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.zip)
+2. Extract into /var/www/
+3. Go to phpmyadmin directory /var/www/phpmyadmin/
+4. You have a PHPMyAdmin configuration file /var/www/phpmyadmin/config.inc.php or else you have with the name of
+config.sample.inc.php rename it to config.inc.ph
+5. add the below lines in the config.ini.php with your system credentials
 ```
-sudo apt install phpmyadmin php-mbstring php-gettext
+$i++;
+$cfg[‘Servers’][$i][‘host’] = ‘HostName’;
+$cfg[‘Servers’][$i][‘user’] = ‘UserName’;
+$cfg[‘Servers’][$i][‘password’] = ‘Password’;
+$cfg[‘Servers’][$i][‘port’] = ‘3306’
+$cfg[‘Servers’][$i][‘auth_type’] = ‘config’;
 ```
-- For the server selection, choose apache2
-- Select Yes when asked whether to use dbconfig-common to set up the database
-- You will then be asked to choose and confirm a MySQL application password for phpMyAdmin
-2. Enable mbstring
+6. Inside run /var/www/phpmyadmin this command
 ```
-sudo phpenmod mbstring
+php -S localhost:8080 
 ```
-3. Restart apache
-```
-sudo systemctl restart apache2
-```
-4. Open phpmyadmin
-```
-http://your_domain_or_IP/phpmyadmin (http://127.0.0.1:8000/phpmyadmin)
-```
-
-*For error refer: [https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)*
+7. Now open your brower to make admin changes - [localhost:8080](localhost:8080)
 
 ## Potential Errors
 

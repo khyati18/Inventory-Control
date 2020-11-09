@@ -16,11 +16,11 @@ If(isset($_POST['submit'])) {
         if ($name == "admin" && $user_id == 0) 
         {
           // output data of each row
-          header('Location: http://localhost:8000/phpmyadmin/');
+          header('Location: localhost:8080');
         } 
         else 
         {
-          echo "sorry !! name or admin-id is incorrect";
+          echo "Sorry !! Admin Id or Name is incorrect";
         }
 
     }
