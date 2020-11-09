@@ -22,7 +22,7 @@
 	<h1>Inventory List</h1>
 </div>
 
-<form action='./Cart.php' method='post'>
+<form action='./cart.php' method='post'>
 
 <table>
 	<colgroup>
