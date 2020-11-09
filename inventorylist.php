@@ -76,11 +76,8 @@
 
 </table>
 
-<br><br>
 <div>
-	<center>
-		<input class="checkoutbtn" type="submit" value="Go to Cart"/>
-	</center>
+	<button type="submit" class="button" name="submit">Go To Cart</button>
 </div>
 
 </form>
