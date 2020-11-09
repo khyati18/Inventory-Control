@@ -67,7 +67,7 @@
       </table>
     </div>
 
-    <button type="submit" class="checkoutbtn" name="checkout">
+    <button type="submit" class="button" name="checkout">
         Checkout
     </button>
   </section>

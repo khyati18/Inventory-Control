@@ -144,7 +144,7 @@ body {
 input[type=text], input[type=password] {
   width: 85%;
   padding: 15px;
-  margin: 5px 0 22px 20px;
+  margin: 12px 0 5px 20px;
   display: inline-block;
   border: none;
   background: #f1f1f1;
@@ -162,20 +162,21 @@ hr {
 }
 
 /* Set a style for the submit button */
-.registerbtn {
+.button {
   background-color: cadetblue;
   color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
+  padding: 16px 0;
+  margin: 2% 40%;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 20%;
   opacity: 0.9;
 }
 
-.registerbtn:hover {
+.button:hover {
   opacity: 1;
 }
+
 
 /* Add a blue text color to links */
 a {
@@ -199,34 +200,19 @@ th{
   color: black;
 }
 table {
-font-family: arial, sans-serif;
-border-collapse: collapse;
-background-color: floralwhite;
-margin-left: auto;
-margin-right: auto;
-width: 80%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  background-color: floralwhite;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 tr:hover{
   background-color: #ddd;
 }
 
 td, th {
-border: 1px solid cornflowerblue;
-text-align: left;
-padding: 8px;
-}
-
-.checkoutbtn {
-  background-color: cadetblue;
-  color: white;
-  padding: 16px 20px;
-  margin: 15px 0;
-  border: none;
-  cursor: pointer;
-  width: 20%;
-  opacity: 0.9;
-}
-
-.checkoutbtn:hover {
-  opacity: 1;
+  border: 1px solid cornflowerblue;
+  text-align: left;
+  padding: 8px;
 }

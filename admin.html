@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/styles.css" type="text/css">
 </head>
@@ -18,25 +18,25 @@
     <h1>Inventory Control</h1>
   </div>
 
-  <form action="action.php" method="POST">
+  <form action="authenticate.php" method="POST">
     <div class="container-main">
         <p>Please enter your details.</p>
         
         <hr>
 
-        <label for="email"><b>User Email</b></label>
-        <input type="text" placeholder="Enter email" name="email" id="email" required>
+        <label for="name"><b>Admin Name</b></label>
+        <input type="text" placeholder="enter name" name="name" id="name" required>
 
         <br>
 
-        <label for="user_id"><b>User Id &nbsp&nbsp&nbsp&nbsp&nbsp</b></label>
-        <input type="password" placeholder="Enter user_id" name="user_id" id="user_id" required>
+        <label for="user_id"><b>Admin Id &nbsp&nbsp&nbsp&nbsp&nbsp</b></label>
+        <input type="password" placeholder="enter admin id" name="user_id" id="user_id" required>
 
         <hr>
         
         <button type="submit" class="button" name="submit">Submit</button>
         <div style="text-align: center; margin-top: 20px;">
-          <a href="admin.html" style="color: gray; font-size: 20px;">Login as Admin</a>
+          <a href="index.html" style="color: gray; font-size: 20px;">Login as a normal user</a>
         </div>
       </div>
     </form>
