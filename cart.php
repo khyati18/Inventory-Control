@@ -67,6 +67,10 @@
       </table>
     </div>
 
+    <textarea name="remarks" name="remarks">
+      Remarks...
+    </textarea>
+
     <button type="submit" class="button" name="checkout">
         Checkout
     </button>
