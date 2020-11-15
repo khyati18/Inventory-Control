@@ -49,7 +49,7 @@
 	$conn = OpenCon();
 	echo $conn->error;
 
-	$sql = "SELECT id, name, company, price FROM Items";
+	$sql = "SELECT id, name, company, quantity, price FROM Items";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) 
@@ -64,7 +64,7 @@
 	    echo "<td>" . $row['name'] . "</td>";
 	    echo "<td>" . $row['company'] . "</td>";
 	    echo "<td>" . $row['price'] . "</td>";
-	    echo "<td>" . "<input  type='number' value='1' min='1' max='10000000' name='quantity_$count' />" . "</td>";
+	    echo "<td>" . "<input  type='number' value='0' min='0' max='".$row['quantity']."' name='quantity_$count' />" . "</td>";
 	    echo "<td>" . "<input type='checkbox' name='check_row_$count' />" . "</td>";
 	  }
 	}
