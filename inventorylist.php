@@ -37,6 +37,7 @@
 	<tr>
 		<th>ID</th>
 		<th>Chemical Name</th>
+		<th>Wiki</th>
 		<th>Company Name</th>
 		<th>Price (per gm)</th>
 		<th>Quantity (in gm)</th>
@@ -49,7 +50,7 @@
 	$conn = OpenCon();
 	echo $conn->error;
 
-	$sql = "SELECT id, name, company, price FROM Items";
+	$sql = "SELECT id, name, wiki, company, price FROM Items";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) 
@@ -62,6 +63,7 @@
 	    echo "<tr>";
 	    echo "<td>" . $row['id'] . "</td>";
 	    echo "<td>" . $row['name'] . "</td>";
+	    echo "<td>" . $row['wiki'] . "</td>";
 	    echo "<td>" . $row['company'] . "</td>";
 	    echo "<td>" . $row['price'] . "</td>";
 	    echo "<td>" . "<input  type='number' value='1' min='1' max='10000000' name='quantity_$count' />" . "</td>";
