@@ -39,6 +39,8 @@
 
         $sql = "SELECT id, name, company, price FROM Items";
         $result = $conn->query($sql);
+        $total = 0;
+        $items = 0;
 
         if ($result->num_rows > 0) 
         {
@@ -54,6 +56,8 @@
               echo "<td>" . $row['name'] . "</td>";
               echo "<td>" . $_POST["quantity_$count"] . "</td>";
               echo "<td>" . $row['price'] . "</td>";
+              $items ++;
+              $total += $row['price'] * $_POST["quantity_$count"];
               echo "</tr>";
             }
           }
@@ -62,14 +66,18 @@
         {
           echo "Database Error";
         }
-        ?>
-      
-      </table>
-    </div>
+      echo "</table>";
 
-    <textarea name="remarks" name="remarks">
+      echo '<textarea name="remarks" name="remarks">
       Remarks...
-    </textarea>
+    </textarea>';
+      
+      if($total > 0)
+      {
+        echo '<div class="price">Total Price (' . $items . ' items): ' . $total . '</div>';
+      }
+        ?>
+    </div>
 
     <button type="submit" class="button" name="checkout">
         Checkout
