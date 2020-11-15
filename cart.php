@@ -38,10 +38,12 @@
         echo $conn->error;
 
         $sql = "SELECT id, name, company, price FROM Items";
+  
         $result = $conn->query($sql);
         $total = 0;
         $items = 0;
 
+        $cart = '';
         if ($result->num_rows > 0) 
         {
           // output data of each row
@@ -52,6 +54,9 @@
 
             if(isset($_POST["check_row_$count"]))
             {
+              $cart .= ' chemicalId: '.$row['id'].' quantity: ' .$_POST["quantity_$count"] .' price '. $row['price'] ;
+              $cart .=' ; ';
+              
               echo "<tr>";
               echo "<td>" . $row['name'] . "</td>";
               echo "<td>" . $_POST["quantity_$count"] . "</td>";
@@ -61,12 +66,24 @@
               echo "</tr>";
             }
           }
+        echo $cart;
+        
+      
         }
         else
         {
           echo "Database Error";
         }
       echo "</table>";
+        $queryInsert= "INSERT INTO Orders VALUES ('nidhi', '$cart', 'good remarks')";
+        function runMyFunction() {
+          $result1 = $conn->query($queryInsert);
+          //echo 'I just ran a php function';
+        }
+        ?>
+      
+      </table>
+    </div>
 
       echo '<textarea name="remarks" name="remarks">
       Remarks...
@@ -79,7 +96,7 @@
         ?>
     </div>
 
-    <button type="submit" class="button" name="checkout">
+    <button type="submit" class="button" name="checkout" onclick="runMyFunction()">
         Checkout
     </button>
   </section>
@@ -88,3 +105,4 @@
 
 </body>
 </html>
+
