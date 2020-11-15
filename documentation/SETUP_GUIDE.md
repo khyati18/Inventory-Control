@@ -17,7 +17,7 @@ sudo /opt/lampp/lampp start
 
 ## Connecting to database
 
-First Install MySQL locally
+First Install [MySQL](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/) locally
 
 1. Open new terminal
 2. Go to MySQL server
@@ -40,7 +40,7 @@ use inventory;
 ```
 6. Update your MySQL root user password in [db_connection.php](./config/db_connection.php)
 
-## For Admin Only - Connect to phpmyadmin server 
+## Admin Only - Connect to phpmyadmin server 
 
 1. Download phpmyadmin - [https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.zip](https://files.phpmyadmin.net/phpMyAdmin/4.9.0.1/phpMyAdmin-4.9.0.1-all-languages.zip)
 2. Extract into /var/www/
@@ -58,12 +58,8 @@ $cfg[‘Servers’][$i][‘auth_type’] = ‘config’;
 ```
 6. Inside run /var/www/phpmyadmin this command
 ```
-php -S localhost:8080 
+php -S localhost:8081
 ```
-7. Now open your brower to make admin changes - [localhost:8080](localhost:8080)
+7. Now open your brower to make admin changes - [localhost:8081](localhost:8081)
 
-## Potential Errors
-
-1. Error: XAMPP: Starting Apache…fail 
-
-*Solution* - Restart Apache using `systemctl restart apache2.service`
+*Same steps can be done in /opt/lampp/phpmyadmin folder*

@@ -6,7 +6,7 @@
 <head>
     <title>Inventory List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 	<h1>Inventory List</h1>
 </div>
 
-<form action='./cart.php' method='post'>
+<form action='../user/cart.php' method='post'>
 
 <table>
 	<colgroup>
@@ -44,7 +44,7 @@
 	</tr>
 
 	<?php
-	include 'config/db_connection.php';
+	include '../config/db_connection.php';
 
 	$conn = OpenCon();
 	echo $conn->error;
@@ -82,7 +82,7 @@
 
 </form>
 
-<script src="./js/script.js"></script>
+<script src="../js/script.js"></script>
 
 </body>
 </html>

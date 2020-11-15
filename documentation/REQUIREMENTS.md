@@ -16,6 +16,12 @@ A web application which will provide a GUI for easy tracking and management of i
 - Else if, required quantity is not available then the user will be notified to wait until the item becomes available.
 - The list of items ordered will get deducted automatically from the inventory.
 
+- *Admin*
+	- Can update quantity of chemicals left
+	- Modify prices
+	- Insert items to the inventory
+	- Accept and Reject orders
+
 ## Software
 
 The software server can run on any recent version of Linux, such as Ubuntu, Debian, Fedora Core,Redhat Enterprise, etc. It requires:
@@ -61,5 +67,10 @@ This will be the list of chemicals available with the administration. Required c
 	- Weight
 	- Available Quantity
 	- Price(per gm)
+3. Order Table
+All request sent ny user will be added here. 
+	- User Id
+	- Order details
+	- Extra Remarks
 
 <i>This database information was provided by the client.<i>
