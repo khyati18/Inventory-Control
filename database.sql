@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS `Items`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `name` nvarchar(1000) NOT NULL,
   `company` varchar(100) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
@@ -44,18 +44,18 @@ CREATE TABLE `Items` (
 -- Dumping data for table `Items`
 --
 
-LOCK TABLES `Items` WRITE;
+/*LOCK TABLES `Items` WRITE;*/
 /*!40000 ALTER TABLE `Items` DISABLE KEYS */;
-INSERT INTO `Items` VALUES (1,'Acetylacetone','Alfa Aeser',100,50);
-INSERT INTO `Items` VALUES (2,'Benzaic Acid LR','SDFCL',200,50);
-INSERT INTO `Items` VALUES (3,'Benzoic acid','Sigma-Aldrich',300,50);
-INSERT INTO `Items` VALUES (4,'Camphorsulfonic acid','Sigma-Aldrich',300,50);
-INSERT INTO `Items` VALUES (5,'Dioctyl sulfosuccinate sodium salt','Sigma-Aldrich',300,50);
-INSERT INTO `Items` VALUES (6,'Ethanediol LR','SDFCL',400,50);
-INSERT INTO `Items` VALUES (7,'Glass Wool','Loba Chemie',400,50);
-INSERT INTO `Items` VALUES (8,'Hexanoic acid','Alfa Aeser',500,50);
-INSERT INTO `Items` VALUES (9,'Lauric acid','TCI',400,50);
-INSERT INTO `Items` VALUES (10,'Oxalic acid dihydrate','Merck',200,50);
+INSERT INTO `Items` VALUES (1,'<a href="https://en.wikipedia.org/wiki/Acetylacetone" target="_blank">Acetylacetone</a>','Alfa Aeser',100,50);
+INSERT INTO `Items` VALUES (2,'<a href="https://en.wikipedia.org/wiki/Benzoic_acid" target="_blank">Benzoic Acid</a>','SDFCL',200,50);
+INSERT INTO `Items` VALUES (3,'<a href="https://en.wikipedia.org/wiki/Benzoic_acid" target="_blank">Benzoic Acid</a>','Sigma-Aldrich',300,50);
+INSERT INTO `Items` VALUES (4,'<a href="https://en.wikipedia.org/wiki/Camphorsulfonic_acid" target="_blank">Camphorsulfonic Acid</a>','Sigma-Aldrich',300,50);
+INSERT INTO `Items` VALUES (5,'<a href="https://en.wikipedia.org/wiki/Docusate" target="_blank">Dioctyl sulfosuccinate sodium salt</a>','Sigma-Aldrich',300,50);
+INSERT INTO `Items` VALUES (6,'<a href="https://en.wikipedia.org/wiki/Ethylene_glycol" target="_blank">Ethanediol</a>','SDFCL',400,50);
+INSERT INTO `Items` VALUES (7,'<a href="https://en.wikipedia.org/wiki/Glass_wool" target="_blank">Glass wool</a>','Loba Chemie',400,50);
+INSERT INTO `Items` VALUES (8,'<a href="https://en.wikipedia.org/wiki/Caproic_acid" target="_blank">Hexanoic Acid</a>','Alfa Aeser',500,50);
+INSERT INTO `Items` VALUES (9,'<a href="https://en.wikipedia.org/wiki/Lauric_acid" target="_blank">Lauric Acid</a>','TCI',400,50);
+INSERT INTO `Items` VALUES (10,'<a href="https://en.wikipedia.org/wiki/Oxalic_acid" target="_blank">Oxalic Acid Dihydrate</a>','Merck',200,50);
 /*!40000 ALTER TABLE `Items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,3 +96,4 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2020-11-02  3:51:13
+
