@@ -27,7 +27,13 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `Items`
 --
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `inventory` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
+USE `inventory`;
+
+DROP TABLE IF EXISTS `Items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Items` (
   `id` int(11) NOT NULL,
   `name` varchar(1000) CHARACTER SET utf8 NOT NULL,
@@ -57,7 +63,9 @@ INSERT INTO `Items` (`id`, `name`, `company`, `quantity`, `price`) VALUES
 --
 -- Table structure for table `Orders`
 --
-
+DROP TABLE IF EXISTS `Orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Orders` (
   `OrderId` int(11) NOT NULL,
   `UserId` int(11) NOT NULL,
@@ -70,7 +78,9 @@ CREATE TABLE `Orders` (
 --
 -- Table structure for table `Users`
 --
-
+DROP TABLE IF EXISTS `Users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Users` (
   `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
