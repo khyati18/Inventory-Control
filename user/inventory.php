@@ -5,35 +5,35 @@
 <html>
 <head>
     <title>Inventory List</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../css/styles.css" type="text/css">
+
+	<!-- external stylesheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-<div class='container'>
+<!-- <div class='container'>
 	<label id='switch' class='switch'>
   		<input type='checkbox' onchange='toggleTheme()' id='slider'>
   		<span class='slider round'></span>
 	</label>
-</div>
+</div> -->
 
 <div class='heading'>
-	<h1>Inventory List</h1>
+	<h1>INVENTORY</h1>
 </div>
 
-<form action='../user/cart.php' method='post'>
+<input class="form-control" id="myInput" type="text" placeholder="Search.." style="margin-left: 20px;"><br>
 
-<table>
-	<colgroup>
-		<col width='15'>
-		<col width='500'>
-		<col width='200'>
-		<col width='125'>
-		<col width='140'>
-		<col width='100'>
-	</colgroup>
-
+<table class="table table-bordered table-hover">
+	<form action='../user/cart.php' method='post'>
 	<tr>
 		<th>ID</th>
 		<th>Chemical Name</th>
@@ -42,6 +42,8 @@
 		<th>Quantity (in gm)</th>
 		<th>Select</th>
 	</tr>
+
+	<tbody id="myTable">
 
 	<?php
 	include '../config/db_connection.php';
@@ -73,7 +75,7 @@
 	  echo "Database Error";
 	}
 	?>
-
+	</tbody>
 </table>
 
 <div>
@@ -83,6 +85,16 @@
 </form>
 
 <script src="../js/script.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
 </body>
 </html>

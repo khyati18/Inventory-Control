@@ -1,99 +1,137 @@
--- MySQL dump 10.17  Distrib 10.3.25-MariaDB, for debian-linux-gnu (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: inventory
--- ------------------------------------------------------
--- Server version	10.3.25-MariaDB-0ubuntu0.20.04.1
+-- Host: localhost:3306
+-- Generation Time: Nov 16, 2020 at 05:30 AM
+-- Server version: 10.3.25-MariaDB-0ubuntu0.20.04.1
+-- PHP Version: 7.0.33-29+ubuntu18.04.1+deb.sury.org+1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Current Database: `inventory`
+-- Database: `inventory`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `inventory` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-
-USE `inventory`;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `Items`
 --
 
-DROP TABLE IF EXISTS `Items`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` nvarchar(1000) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(1000) CHARACTER SET utf8 NOT NULL,
   `company` varchar(100) NOT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `price` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Items`
 --
 
-/*LOCK TABLES `Items` WRITE;*/
-/*!40000 ALTER TABLE `Items` DISABLE KEYS */;
-INSERT INTO `Items` VALUES (1,'<a href="https://en.wikipedia.org/wiki/Acetylacetone" target="_blank">Acetylacetone</a>','Alfa Aeser',100,50);
-INSERT INTO `Items` VALUES (2,'<a href="https://en.wikipedia.org/wiki/Benzoic_acid" target="_blank">Benzoic Acid</a>','SDFCL',200,50);
-INSERT INTO `Items` VALUES (3,'<a href="https://en.wikipedia.org/wiki/Benzoic_acid" target="_blank">Benzoic Acid</a>','Sigma-Aldrich',300,50);
-INSERT INTO `Items` VALUES (4,'<a href="https://en.wikipedia.org/wiki/Camphorsulfonic_acid" target="_blank">Camphorsulfonic Acid</a>','Sigma-Aldrich',300,50);
-INSERT INTO `Items` VALUES (5,'<a href="https://en.wikipedia.org/wiki/Docusate" target="_blank">Dioctyl sulfosuccinate sodium salt</a>','Sigma-Aldrich',300,50);
-INSERT INTO `Items` VALUES (6,'<a href="https://en.wikipedia.org/wiki/Ethylene_glycol" target="_blank">Ethanediol</a>','SDFCL',400,50);
-INSERT INTO `Items` VALUES (7,'<a href="https://en.wikipedia.org/wiki/Glass_wool" target="_blank">Glass wool</a>','Loba Chemie',400,50);
-INSERT INTO `Items` VALUES (8,'<a href="https://en.wikipedia.org/wiki/Caproic_acid" target="_blank">Hexanoic Acid</a>','Alfa Aeser',500,50);
-INSERT INTO `Items` VALUES (9,'<a href="https://en.wikipedia.org/wiki/Lauric_acid" target="_blank">Lauric Acid</a>','TCI',400,50);
-INSERT INTO `Items` VALUES (10,'<a href="https://en.wikipedia.org/wiki/Oxalic_acid" target="_blank">Oxalic Acid Dihydrate</a>','Merck',200,50);
-/*!40000 ALTER TABLE `Items` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `Items` (`id`, `name`, `company`, `quantity`, `price`) VALUES
+(1, '<a href=\"https://en.wikipedia.org/wiki/Acetylacetone\" target=\"_blank\">Acetylacetone</a>', 'Alfa Aeser', 100, 50),
+(2, '<a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a>', 'SDFCL', 200, 50),
+(3, '<a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a>', 'Sigma-Aldrich', 300, 50),
+(4, '<a href=\"https://en.wikipedia.org/wiki/Camphorsulfonic_acid\" target=\"_blank\">Camphorsulfonic Acid</a>', 'Sigma-Aldrich', 300, 50),
+(5, '<a href=\"https://en.wikipedia.org/wiki/Docusate\" target=\"_blank\">Dioctyl sulfosuccinate sodium salt</a>', 'Sigma-Aldrich', 300, 50),
+(6, '<a href=\"https://en.wikipedia.org/wiki/Ethylene_glycol\" target=\"_blank\">Ethanediol</a>', 'SDFCL', 400, 50),
+(7, '<a href=\"https://en.wikipedia.org/wiki/Glass_wool\" target=\"_blank\">Glass wool</a>', 'Loba Chemie', 400, 50),
+(8, '<a href=\"https://en.wikipedia.org/wiki/Caproic_acid\" target=\"_blank\">Hexanoic Acid</a>', 'Alfa Aeser', 500, 50),
+(9, '<a href=\"https://en.wikipedia.org/wiki/Lauric_acid\" target=\"_blank\">Lauric Acid</a>', 'TCI', 400, 50),
+(10, '<a href=\"https://en.wikipedia.org/wiki/Oxalic_acid\" target=\"_blank\">Oxalic Acid Dihydrate</a>', 'Merck', 200, 50);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Orders`
+--
+
+CREATE TABLE `Orders` (
+  `OrderId` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
+  `OrderDetails` text NOT NULL,
+  `Remarks` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `Users`
 --
 
-DROP TABLE IF EXISTS `Users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Users`
 --
 
-LOCK TABLES `Users` WRITE;
-/*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'Khyati','Agarwal','test@gmail.com','2020-11-01 22:17:05'),(2,'Jai','Luthra','test2@gmail.com','2020-11-01 22:17:32');
-/*!40000 ALTER TABLE `Users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `Users` (`id`, `firstname`, `lastname`, `email`, `reg_date`) VALUES
+(1, 'Khyati', 'Agarwal', 'test@gmail.com', '2020-11-01 22:17:05'),
+(2, 'Jai', 'Luthra', 'test2@gmail.com', '2020-11-01 22:17:32');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Items`
+--
+ALTER TABLE `Items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `Orders`
+--
+ALTER TABLE `Orders`
+  ADD PRIMARY KEY (`OrderId`);
+
+--
+-- Indexes for table `Users`
+--
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Items`
+--
+ALTER TABLE `Items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `Orders`
+--
+ALTER TABLE `Orders`
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `Users`
+--
+ALTER TABLE `Users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2020-11-02  3:51:13
-

@@ -2,29 +2,32 @@
 <html lang="en" class="theme-light">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inventory</title>
-  <link rel="stylesheet" href="../css/styles.css" type="text/css">
+	<title>Cart</title>
+	<link rel="stylesheet" href="../css/styles.css" type="text/css">
+
+	<!-- external stylesheets -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-  <div class="container">
+<!--   <div class="container">
     <label id="switch" class="switch">
             <input type="checkbox" onchange="toggleTheme()" id="slider">
             <span class="slider round"></span>
         </label>
-  </div>
+  </div> -->
   
   <div class="heading">
-    <h1>Cart</h1>
+    <h1>CART</h1>
   </div>
   
-  <section class="container2">
+  <section>
 
-    <div>
-      <table>
+    <div class="cart">
+      <table class="table table-bordered table-hover">
         <tr>
           <th><h3>Chemical Name</h3></th>
           <th><h3>Quantity</h3></th>
@@ -72,8 +75,7 @@
 
       
         
-      echo "</table>";
-      echo "</div>";
+      	echo "</table>";
           
 
           if($total>0)
@@ -83,15 +85,12 @@
             echo "</div>";
           }
           
-          echo "<textarea name='remarks'>Remarks...</textarea>";
-
-          echo $cart;
+          echo "<input type=textarea name='remarks' value='Remarks...' id='remarks'/>";
       ?>
-
-
+  	</div>
   </section>
 
-  <a href="send_order.php?cart=<?=$cart?>">
+  <a href = "javascript:;" onclick = "this.href='send_order.php?cart=<?=$cart?>&remark=' + document.getElementById('remarks').value">
       <input type="submit" class="button" name="Checkout" value="Checkout"/>
   </a>
     
