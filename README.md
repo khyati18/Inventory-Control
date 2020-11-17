@@ -4,7 +4,7 @@ A GUI for inventory control, that takes the user id as input and the number of i
 
 ## Documentation
 
-- For local deploymnet see [Local Setup Guide](./Documentation/SETUP_GUIDE.md)
+- For local deployment see [Local Setup Guide](./documentation/SETUP_GUIDE.md)
 
 Refer to [wiki](https://github.com/khyati18/Inventory-Control/wiki) page for further details.
 
