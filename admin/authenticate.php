@@ -15,7 +15,7 @@ If(isset($_POST['submit'])) {
         // Credentials: admin 
         if ($name == "admin" && $user_id == 0) 
         {
-          header('Location: http://localhost:8080/db_structure.php?server=1&db=inventory');         // Url to phpmyadmin database
+          header('Location: ./requests.php');         // Url to phpmyadmin database
         } 
         else 
         {
