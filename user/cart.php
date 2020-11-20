@@ -56,7 +56,7 @@
 
               if(isset($_POST["check_row_$count"]))
               {
-                $cart .=  "chemicalId: " . $row['id'] . " quantity: " . $_POST["quantity_$count"] . " price: " . $row['price'];
+                $cart .=  "chemicalId: " . $row['name'] . " quantity: " . $_POST["quantity_$count"] . " price: " . $row['price'] . "<br>";
                 
                 echo "<tr>";
                 echo "<td>" . $row['name'] . "</td>";

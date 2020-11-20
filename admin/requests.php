@@ -27,10 +27,11 @@
 <input class="form-control" id="myInput" type="text" placeholder="Search.." style="margin-left: 20px;"><br>
 
 <table class="table table-bordered table-hover">
-	<form action='./modify.php' method='post'>
+	<form action='./requests.php' method='post'>
 	<tr>
 		<th>Order Id</th>
 		<th>User Id</th>
+		<th>User Email</th>
 		<th>Order Details</th>
         <th>Remarks</th>
         <th>Approve</th>
@@ -45,6 +46,12 @@
 	$conn = OpenCon();
 	echo $conn->error;
 
+	if ($_POST['action'] == 'Approve') {
+		echo 'Approved';
+	} else if ($_POST['action'] == 'Reject') {
+		echo 'Rejected';
+	} else;
+
     $sql = "SELECT OrderId,UserId, OrderDetails, Remarks FROM Orders";
     echo $result;
 	$result = $conn->query($sql);
@@ -55,14 +62,18 @@
 	  $count = 0;
 	  while($row = $result->fetch_assoc()) 
 	  {
+		$id = $row['UserId'];
+		$sql1 = "SELECT email from Users where id='$id'";
+		$result1 = $conn->query($sql1);
 	  	$count++;
 	    echo "<tr>";
 	    echo "<td>" . $row['OrderId'] . "</td>";
-	    echo "<td>" . $row['UserId'] . "</td>";
+		echo "<td>" . $row['UserId'] . "</td>";
+	    echo "<td>" . $result1->fetch_assoc()['email'] . "</td>";
 	    echo "<td>" . $row['OrderDetails'] . "</td>";
         echo "<td>" . $row['Remarks'] . "</td>";
-        echo "<td><button>Approve</button></td>"; 
-        echo "<td><button>Reject</button></td>"; 
+        echo '<td><input type="submit" name="action" value="Approve"/></td>';
+		echo '<td><input type="submit" name="action" value="Reject"/></td>';
 	  }
 	}
 	else
@@ -73,10 +84,12 @@
 	</tbody>
 </table>
 
+</form>
+
+<form action="http://localhost:8080/db_structure.php?server=1&db=inventory" method='post'>
 <div>
 	<button type="submit" class="button" name="submit">Modify Database instead</button>
 </div>
-
 </form>
 
 <script src="../js/script.js"></script>
