@@ -37,7 +37,7 @@ The software is developed using [XAMPP](https://www.apachefriends.org/index.html
 - Admin
 	- Login using Admin Id and Name.
 	- Modify and Update Items table as required.
-	- Check order requests in Orders Table.
+	- Approve Or Reject order requests.
 
 ## References
 
