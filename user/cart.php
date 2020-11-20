@@ -90,7 +90,7 @@
   	</div>
   </section>
 
-  <a href = "javascript:;" onclick = "this.href='send_order.php?cart=<?=$cart?>&remark=' + document.getElementById('remarks').value">
+  <a href = "javascript:;" onclick = "this.href='send_order.php?cart=<?php $cart?>&remark=' + document.getElementById('remarks').value">
       <input type="submit" class="button" name="Checkout" value="Checkout"/>
   </a>
     

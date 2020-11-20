@@ -13,12 +13,6 @@
 
 <body>
 
-<!--   <div class="container">
-    <label id="switch" class="switch">
-            <input type="checkbox" onchange="toggleTheme()" id="slider">
-            <span class="slider round"></span>
-        </label>
-  </div> -->
   
   <div class='heading'>
 	<h1>Requests</h1>
@@ -46,14 +40,7 @@
 	$conn = OpenCon();
 	echo $conn->error;
 
-	if ($_POST['action'] == 'Approve') {
-		echo 'Approved';
-	} else if ($_POST['action'] == 'Reject') {
-		echo 'Rejected';
-	} else;
-
     $sql = "SELECT OrderId,UserId, OrderDetails, Remarks FROM Orders";
-    echo $result;
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) 
@@ -72,21 +59,32 @@
 	    echo "<td>" . $result1->fetch_assoc()['email'] . "</td>";
 	    echo "<td>" . $row['OrderDetails'] . "</td>";
         echo "<td>" . $row['Remarks'] . "</td>";
-        echo '<td><input type="submit" name="action" value="Approve"/></td>';
-		echo '<td><input type="submit" name="action" value="Reject"/></td>';
+        echo '<td><input type="submit" name="approve" value="Approve"/></td>';
+		echo '<td><input type="submit" name="reject" value="Reject"/></td>';
 	  }
 	}
 	else
 	{
 	  echo "Database Error";
 	}
+
+
+	if (isset($_POST['approve'])) 
+	{
+		echo 'Approved';
+	} 
+	else if (isset($_POST['reject'])) 
+	{
+		echo 'Rejected';
+	} 
+
 	?>
 	</tbody>
 </table>
 
 </form>
 
-<form action="http://localhost:8080/db_structure.php?server=1&db=inventory" method='post'>
+<form action="http://localhost:8080/db_structure.php?server=1&db=inventory" target="_blank" method='post'>
 <div>
 	<button type="submit" class="button" name="submit">Modify Database instead</button>
 </div>
