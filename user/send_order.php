@@ -6,7 +6,7 @@
     echo $conn->error;
 
     $details = $_GET['cart'];
-    $remarks = $_GET['remark'];
+    $remarks = $_POST['remark'];
 
     // echo $details;
 

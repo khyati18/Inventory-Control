@@ -85,15 +85,16 @@
             echo "</div>";
           }
           
-          echo "<input type=textarea name='remarks' value='Remarks...' id='remarks'/>";
+          echo "<form action='send_order.php?cart=$cart' method='POST'>";
+          echo "<input type=textarea name='remark' value='Remarks...' id='remarks'/>";
       ?>
   	</div>
   </section>
 
-  <a href = "javascript:;" onclick = "this.href='send_order.php?cart=<?php $cart?>&remark=' + document.getElementById('remarks').value">
-      <input type="submit" class="button" name="Checkout" value="Checkout"/>
-  </a>
-    
+  <?php
+  echo "<input type='submit' class='button' name='Checkout' value='Checkout'/>";
+  echo "</form>";
+  ?>
 
 <script src="../js/script.js"></script>
 
