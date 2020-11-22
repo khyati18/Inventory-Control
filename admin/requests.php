@@ -41,7 +41,7 @@
 	$conn = OpenCon();
 	echo $conn->error;
 
-    $sql = "SELECT OrderId,UserId, OrderDetails, Remarks FROM Orders";
+    $sql = "SELECT OrderId,UserId, OrderDetails, Remarks FROM Orders WHERE Status is NULL";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) 
@@ -54,7 +54,7 @@
 		$sql1 = "SELECT email from Users where id='$id'";
 		$result1 = $conn->query($sql1);
 	  	$count++;
-	    echo "<tr>";
+		echo "<tr>";
 	    echo "<td>" . $row['OrderId'] . "</td>";
 		echo "<td>" . $row['UserId'] . "</td>";
 	    echo "<td>" . $result1->fetch_assoc()['email'] . "</td>";
@@ -62,7 +62,7 @@
 		echo "<td>" . $row['Remarks'] . "</td>";
 		// echo "<td><textarea style='width:200px; height:40px'></textarea></td>";
 		echo "<td><input type='text' style='margin:0; background-color: white;' placeholder='thank you for ordering'></td>";
-        echo '<td><input type="submit" name="approve" value="Approve"/></td>';
+		echo '<td><input type="submit" name="approve" value="Approve"/></td>';
 		echo '<td><input type="submit" name="reject" value="Reject"/></td>';
 	  }
 	}
@@ -74,11 +74,13 @@
 
 	if (isset($_POST['approve'])) 
 	{
-		echo 'Approved';
+		$sql = "UPDATE Orders SET Status='Approved' WHERE OrderId=$val";
+		$result = $conn->query($sql);
 	} 
 	else if (isset($_POST['reject'])) 
 	{
-		echo 'Rejected';
+		$sql = "UPDATE Orders SET Status='Rejected' WHERE OrderId=$val";
+		$result = $conn->query($sql);
 	} 
 
 	?>

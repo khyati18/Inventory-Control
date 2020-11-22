@@ -70,7 +70,8 @@ CREATE TABLE `Orders` (
   `OrderId` int(11) NOT NULL,
   `UserId` int(11) NOT NULL,
   `OrderDetails` text NOT NULL,
-  `Remarks` text NOT NULL
+  `Remarks` text NOT NULL,
+  `Status` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
