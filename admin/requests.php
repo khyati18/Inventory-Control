@@ -27,7 +27,8 @@
 		<th>User Id</th>
 		<th>User Email</th>
 		<th>Order Details</th>
-        <th>Remarks</th>
+        <th>User Remarks</th>
+		<th>Admin Remarks</th>
         <th>Approve</th>
         <th>Reject</th>
 	</tr>
@@ -58,7 +59,9 @@
 		echo "<td>" . $row['UserId'] . "</td>";
 	    echo "<td>" . $result1->fetch_assoc()['email'] . "</td>";
 	    echo "<td>" . $row['OrderDetails'] . "</td>";
-        echo "<td>" . $row['Remarks'] . "</td>";
+		echo "<td>" . $row['Remarks'] . "</td>";
+		// echo "<td><textarea style='width:200px; height:40px'></textarea></td>";
+		echo "<td><input type='text' style='margin:0; background-color: white;' placeholder='thank you for ordering'></td>";
         echo '<td><input type="submit" name="approve" value="Approve"/></td>';
 		echo '<td><input type="submit" name="reject" value="Reject"/></td>';
 	  }
