@@ -12,8 +12,16 @@
 </head>
 
 <body>
+<!-- nav_bar begin -->  
+<div id="nav_place"></div>
+<script>
+$(function(){
+  $("#nav_place").load("Nav_Bar.html");
+});
+</script>  
+<br><br><br>
+<!-- nav_bar end -->     
 
-  
   <div class='heading'>
 	<h1>Items ordered</h1>
 </div>

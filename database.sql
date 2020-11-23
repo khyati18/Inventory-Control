@@ -87,16 +87,17 @@ CREATE TABLE `Users` (
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `contact` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Users`
 --
 
-INSERT INTO `Users` (`id`, `firstname`, `lastname`, `email`, `reg_date`) VALUES
-(1, 'Khyati', 'Agarwal', 'test@gmail.com', '2020-11-01 22:17:05'),
-(2, 'Jai', 'Luthra', 'test2@gmail.com', '2020-11-01 22:17:32');
+INSERT INTO `Users` (`id`, `firstname`, `lastname`, `email`, `reg_date`, `contact`) VALUES
+(1, 'Khyati', 'Agarwal', 'test@gmail.com', '2020-11-01 22:17:05','9876543212'),
+(2, 'Jai', 'Luthra', 'test2@gmail.com', '2020-11-01 22:17:32','9182736456');
 
 --
 -- Indexes for dumped tables
