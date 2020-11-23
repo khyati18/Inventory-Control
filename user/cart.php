@@ -98,6 +98,17 @@
 
 <script src="../js/script.js"></script>
 
+<div class='button'>
+<button onclick="myFunction()">Order</button>
+
+<script>
+function myFunction() {
+          window.location.href="./orders.php";       // Url to phpmyadmin database
+}
+</script>
+</div>
+</div>
+
 </body>
 </html>
 
