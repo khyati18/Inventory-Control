@@ -33,6 +33,8 @@ $(function(){
 		<th>User Id</th>
 		<th>Order Id</th>
 		<th>Order Details</th>		
+		<th>Order Status</th>
+		<th>Admin Remarks</th>
 	</tr>
 
 	<tbody id="myTable">
@@ -43,13 +45,13 @@ $(function(){
 	$conn = OpenCon();
 	echo $conn->error;
 
-    $sql = "SELECT Orders.UserId,Orders.OrderId,Orders.OrderDetails FROM Orders INNER JOIN Users WHERE Orders.UserId=1";
+    $sql = "SELECT Orders.UserId,Orders.OrderId,Orders.OrderDetails FROM Orders WHERE Orders.UserId=1";
 	$result = $conn->query($sql);
 
+	$count = 0;
 	if ($result->num_rows > 0) 
 	{
 	  // output data of each row
-	  $count = 0;
 	  $count++;
 
 	  while($row = $result->fetch_assoc()) 
@@ -58,7 +60,8 @@ $(function(){
 	    echo "<td>" . $row['UserId'] . "</td>";
 	    echo "<td>" . $row['OrderId'] . "</td>";
 	    echo "<td>" . $row['OrderDetails'] . "</td>";
-		// echo "<td><textarea style='width:200px; height:40px'></textarea></td>";
+	    echo "<td>Approval Pending</td>";
+	    echo "<td>Your request will be approved soon</td>";
 	  }
 	}
 	else

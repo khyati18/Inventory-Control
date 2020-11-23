@@ -13,12 +13,7 @@
 
 <body>
 
-<!--   <div class="container">
-    <label id="switch" class="switch">
-            <input type="checkbox" onchange="toggleTheme()" id="slider">
-            <span class="slider round"></span>
-        </label>
-  </div> -->
+
 <!-- nav_bar begin -->  
 <div id="nav_place"></div>
 <script>
@@ -105,15 +100,16 @@ $(function(){
   echo "</form>";
   ?>
 
-<script src="../js/script.js"></script>
+  <script src="../js/script.js"></script>
 
-<input type='submit' class='button' name='Order' value='Order' onclick='myFunction()'>
-<script>
-function myFunction() {
-          window.location.href="./orders.php";       // Url to phpmyadmin database
-}
-</script>
-</div>
+  <input type='submit' class='button' name='Order' value='Orders' onclick='myFunction()'>
+  <script>
+  function myFunction() 
+  {
+            window.location.href="./orders.php";       // Url to phpmyadmin database
+  }
+  </script>
+
 </body>
 </html>
 

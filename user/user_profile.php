@@ -41,11 +41,13 @@ $(function(){
 	  // output data of each row
 	  while($row = $result->fetch_assoc()) 
 	  {
+	  	echo "<br>";
 	    echo "<h1>" . $row['firstname'] ." ".$row['lastname'] . "</h1>";
 	    echo "<p>Email : " . "<b>" . $row['email'] . "</b></p>";
-	    echo "<p>UserId :" . "<b>" . $row['id'] . "</b>" . "<p>";
-	    echo "<p>Contact :" . "<b>" . $row['contact'] . "</b></h3>";
+	    echo "<p>UserId : " . "<b>" . $row['id'] . "</b>" . "<p>";
+	    echo "<p>Contact : " . "<b>" . $row['contact'] . "</b></h3>";
 		echo "<p>Reg. Date : " . "<b>" . $row['reg_date'] . "</b>" . "</p>"; 
+		echo "<br>";
 	  }
 	}
 	else
