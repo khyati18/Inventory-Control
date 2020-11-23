@@ -15,12 +15,14 @@ A web application which will provide a GUI for easy tracking and management of i
 - If the quantity is available with administration, a confirmation mail of purchase will be sent to both user and admin.
 - Else if, required quantity is not available then the user will be notified to wait until the item becomes available.
 - The list of items ordered will get deducted automatically from the inventory.
+- Can see the status of their previous orders.
 
 - *Admin*
 	- Can update quantity of chemicals left
 	- Modify prices
 	- Insert items to the inventory
 	- Accept and Reject orders
+	- Send remarks on oreders
 
 ## Software
 
@@ -72,5 +74,6 @@ All request sent ny user will be added here.
 	- User Id
 	- Order details
 	- Extra Remarks
+	- Order Status
 
 <i>This database information was provided by the client.<i>

@@ -17,10 +17,14 @@ The software is developed using [XAMPP](https://www.apachefriends.org/index.html
 - */user*
 	- *inventory.php* - main page of application which displays the list of chemicals available with administration with their description and features.
 	- *cart.php* - to show list of items user has selected and their quantity.
-	- *authenticate.php* - for user authentication
+	- *authenticate.php* - for user authentication.
+	- *order.php* - to display previous orders and their status.
+	- *send_order.php* - script to send order to admin.
+	- *Nav_Bar.html* - user frindly interface to switch between pages.
 - */admin*
-	- admin.html - main page for admin
-	- authenticate.php - for admin authentication
+	- *admin.html* - main page for admin.
+	- *authenticate.php* - for admin authentication.
+	- *requests.php* - to display order request from here he can approve/reject orders.
 - *database.sql* - MySQL dump file for database of the software.
 - */config* - PHP scripts to connect to local MySQL server and database.
 - */js* - contains JavaScripts for user friendly interface.
@@ -33,11 +37,13 @@ The software is developed using [XAMPP](https://www.apachefriends.org/index.html
 	- Select the required items and enter their quantity.
 	- If requested quantities are available with admin (i.e. database) the request will proceed, else user will be notified to wait until item becomes available.
 	- Cart system to check and verify final list of items to be ordered.
+	- See status of previous orders.
 
 - Admin
 	- Login using Admin Id and Name.
 	- Modify and Update Items table as required.
 	- Approve Or Reject order requests.
+	- Send remarks on orders to users.
 
 ## References
 
