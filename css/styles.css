@@ -185,6 +185,10 @@ hr {
   opacity: 1;
 }
 
+.last
+{
+  text-align:justify;
+}
 .cart
 {
   margin: auto;
