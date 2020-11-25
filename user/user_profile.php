@@ -33,7 +33,7 @@ $(function(){
 	$conn = OpenCon();
 	echo $conn->error;
 
-	$sql = "SELECT id, firstname, lastname, email, reg_date, contact FROM Users WHERE id=1";
+	$sql = "SELECT id, firstname, lastname, email, reg_date, contact, Address FROM Users WHERE id=1";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) 
@@ -43,10 +43,12 @@ $(function(){
 	  {
 	  	echo "<br>";
 	    echo "<h1>" . $row['firstname'] ." ".$row['lastname'] . "</h1>";
+	    echo "<br>";
 	    echo "<p>Email : " . "<b>" . $row['email'] . "</b></p>";
 	    echo "<p>UserId : " . "<b>" . $row['id'] . "</b>" . "<p>";
 	    echo "<p>Contact : " . "<b>" . $row['contact'] . "</b></h3>";
 		echo "<p>Reg. Date : " . "<b>" . $row['reg_date'] . "</b>" . "</p>"; 
+		echo "<p>Address : " . "<b>" . $row['Address'] . "</b>" . "</p>"; 
 		echo "<br>";
 	  }
 	}

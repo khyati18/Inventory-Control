@@ -45,7 +45,7 @@ $(function(){
 	$conn = OpenCon();
 	echo $conn->error;
 
-    $sql = "SELECT Orders.UserId,Orders.OrderId,Orders.OrderDetails FROM Orders WHERE Orders.UserId=1";
+    $sql = "SELECT Orders.UserId,Orders.OrderId,Orders.OrderDetails,Orders.Status,Orders.Admin_Remarks FROM Orders WHERE Orders.UserId=1";
 	$result = $conn->query($sql);
 
 	$count = 0;
@@ -60,8 +60,8 @@ $(function(){
 	    echo "<td>" . $row['UserId'] . "</td>";
 	    echo "<td>" . $row['OrderId'] . "</td>";
 	    echo "<td>" . $row['OrderDetails'] . "</td>";
-	    echo "<td>Approval Pending</td>";
-	    echo "<td>Your request will be approved soon</td>";
+	    echo "<td>" . $row['Status'] . "</td>";
+	    echo "<td>" . $row['Admin_Remarks'] . "</td>";
 	  }
 	}
 	else

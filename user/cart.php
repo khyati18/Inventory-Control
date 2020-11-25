@@ -60,24 +60,36 @@ $(function(){
 
               if(isset($_POST["check_row_$count"]))
               {
-                $cart .=  "chemicalId: " . $row['name'] . " quantity: " . $_POST["quantity_$count"] . " price: " . $row['price'] . "<br>";
-                
-                echo "<tr>";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $_POST["quantity_$count"] . "</td>";
-                echo "<td>" . $row['price'] . "</td>";
-                $items ++;
-                $total += $row['price'] * $_POST["quantity_$count"];
-                echo "</tr>";
+               
+                $sql_cart_insert = "INSERT INTO Cart (UserId, ChemName, Quantity, Price, ChemId) VALUES ('1','".$row['name']."', '".$_POST["quantity_$count"]."', '".$row['price']."', '".$row['id']."')";
+                $result_cart = $conn->query($sql_cart_insert);
+
               }
             }
           }
-          else
-          {
-            echo "Database Error";
-          }
+          
+          $sql_cart = "SELECT UserId, Quantity, Price, ChemName, ChemId FROM Cart";
+          $result_cart = $conn->query($sql_cart);
 
-      
+          if ($result_cart->num_rows > 0) 
+          {
+            while($row = $result_cart->fetch_assoc()) 
+            {
+              if($row['UserId']=='1')
+              {           
+
+                $cart .=  "chemicalId: " . $row['ChemId'] . " name: " . $row['ChemName'] . " quantity: " . $row["Quantity"] . " price: " . $row['Price'] . "<br>";
+
+                echo "<tr>";
+                echo "<td>" . $row['ChemName'] . "</td>";
+                echo "<td>" . $row['Quantity'] . "</td>";
+                echo "<td>" . $row['Price'] . "</td>";
+                $items ++;
+                $total += $row['Price'] * $row["Quantity"];
+                echo "</tr>";
+              }
+            }
+          }      
         
       	echo "</table>";
           

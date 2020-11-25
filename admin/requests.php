@@ -31,6 +31,7 @@
 		<th>Admin Remarks</th>
         <th>Approve</th>
         <th>Reject</th>
+        <th>Order Status</th>
 	</tr>
 
 	<tbody id="myTable">
@@ -41,12 +42,11 @@
 	$conn = OpenCon();
 	echo $conn->error;
 
-    $sql = "SELECT OrderId,UserId, OrderDetails, Remarks FROM Orders WHERE Status is NULL";
+    $sql = "SELECT OrderId, UserId, OrderDetails, Status, Remarks FROM Orders";
 	$result = $conn->query($sql);
 
 	if ($result->num_rows > 0) 
 	{
-	  // output data of each row
 	  $count = 0;
 	  while($row = $result->fetch_assoc()) 
 	  {
@@ -54,36 +54,29 @@
 		$sql1 = "SELECT email from Users where id='$id'";
 		$result1 = $conn->query($sql1);
 	  	$count++;
+
+	  	$order =  $row['OrderId'];
+		
 		echo "<tr>";
 	    echo "<td>" . $row['OrderId'] . "</td>";
 		echo "<td>" . $row['UserId'] . "</td>";
 	    echo "<td>" . $result1->fetch_assoc()['email'] . "</td>";
 	    echo "<td>" . $row['OrderDetails'] . "</td>";
 		echo "<td>" . $row['Remarks'] . "</td>";
-		// echo "<td><textarea style='width:200px; height:40px'></textarea></td>";
+
 		echo "<td><input type='text' style='margin:0; background-color: white;' placeholder='thank you for ordering'></td>";
-		echo '<td><input type="submit" name="approve" value="Approve"/></td>';
-		echo '<td><input type="submit" name="reject" value="Reject"/></td>';
+		echo "<td><a href='request_manage.php?var=1&order=$order'>Approve</a></td>";
+		echo "<td><a href='request_manage.php?var=0&order=$order'>Reject</a></td>";
+		echo "<td>" . $row['Status'] . "</td>";
+		echo "</tr>";
 	  }
 	}
 	else
 	{
 	  echo "Database Error";
-	}
-
-
-	if (isset($_POST['approve'])) 
-	{
-		$sql = "UPDATE Orders SET Status='Approved' WHERE OrderId=$val";
-		$result = $conn->query($sql);
-	} 
-	else if (isset($_POST['reject'])) 
-	{
-		$sql = "UPDATE Orders SET Status='Rejected' WHERE OrderId=$val";
-		$result = $conn->query($sql);
-	} 
-
+	}		
 	?>
+
 	</tbody>
 </table>
 

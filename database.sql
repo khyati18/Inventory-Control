@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 16, 2020 at 05:30 AM
+-- Generation Time: Nov 25, 2020 at 11:50 PM
 -- Server version: 10.3.25-MariaDB-0ubuntu0.20.04.1
 -- PHP Version: 7.0.33-29+ubuntu18.04.1+deb.sury.org+1
 
@@ -22,18 +22,41 @@ SET time_zone = "+00:00";
 -- Database: `inventory`
 --
 
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `inventory` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `inventory`;
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Cart`
+--
+
+DROP TABLE IF EXISTS `Cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+
+CREATE TABLE `Cart` (
+  `CartId` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Price` int(11) NOT NULL,
+  `ChemName` text NOT NULL,
+  `ChemId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `Items`
 --
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `inventory` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
-
-USE `inventory`;
 
 DROP TABLE IF EXISTS `Items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `Items` (
   `id` int(11) NOT NULL,
   `name` varchar(1000) CHARACTER SET utf8 NOT NULL,
@@ -48,8 +71,8 @@ CREATE TABLE `Items` (
 
 INSERT INTO `Items` (`id`, `name`, `company`, `quantity`, `price`) VALUES
 (1, '<a href=\"https://en.wikipedia.org/wiki/Acetylacetone\" target=\"_blank\">Acetylacetone</a>', 'Alfa Aeser', 100, 50),
-(2, '<a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a>', 'SDFCL', 200, 50),
-(3, '<a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a>', 'Sigma-Aldrich', 300, 50),
+(2, '<a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a>', 'SDFCL', 194, 50),
+(3, '<a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a>', 'Sigma-Aldrich', 291, 50),
 (4, '<a href=\"https://en.wikipedia.org/wiki/Camphorsulfonic_acid\" target=\"_blank\">Camphorsulfonic Acid</a>', 'Sigma-Aldrich', 300, 50),
 (5, '<a href=\"https://en.wikipedia.org/wiki/Docusate\" target=\"_blank\">Dioctyl sulfosuccinate sodium salt</a>', 'Sigma-Aldrich', 300, 50),
 (6, '<a href=\"https://en.wikipedia.org/wiki/Ethylene_glycol\" target=\"_blank\">Ethanediol</a>', 'SDFCL', 400, 50),
@@ -63,45 +86,70 @@ INSERT INTO `Items` (`id`, `name`, `company`, `quantity`, `price`) VALUES
 --
 -- Table structure for table `Orders`
 --
+
 DROP TABLE IF EXISTS `Orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `Orders` (
   `OrderId` int(11) NOT NULL,
   `UserId` int(11) NOT NULL,
   `OrderDetails` text NOT NULL,
   `Remarks` text NOT NULL,
-  `Status` text
+  `Status` text DEFAULT NULL,
+  `Admin_Remarks` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Orders`
+--
+
+INSERT INTO `Orders` (`OrderId`, `UserId`, `OrderDetails`, `Remarks`, `Status`, `Admin_Remarks`) VALUES
+(17, 1, 'chemicalId: <a href=\"https://en.wikipedia.org/wiki/Camphorsulfonic_acid\" target=\"_blank\">Camphorsulfonic Acid</a> quantity: 3 price: 50', 'Remarks...', 'Rejected', 'Your order is rejected. Please order again after 10 days.'),
+(18, 1, 'chemicalId: <a href=\"https://en.wikipedia.org/wiki/Docusate\" target=\"_blank\">Dioctyl sulfosuccinate sodium salt</a> quantity: 2 price: 50', 'Remarks...', 'Approved', 'Thanks for Ordering'),
+(19, 1, 'chemicalId: <a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a> quantity: 1 price: 50', 'Remarks...', 'Rejected', 'Your order is rejected. Please order again after 10 days.'),
+(20, 1, 'chemicalId: <a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a> quantity: 1 price: 50', 'Remarks...', 'Approved', 'Thanks for Ordering'),
+(21, 1, 'chemicalId: 2 name: <a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a> quantity: 2 price: 50', 'Remarks...', 'Approved', 'Thanks for Ordering'),
+(22, 1, 'chemicalId: 3 name: <a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a> quantity: 1 price: 50', 'Remarks...', 'Approved', 'Thanks for Ordering'),
+(23, 1, 'chemicalId: 3 name: <a href=\"https://en.wikipedia.org/wiki/Benzoic_acid\" target=\"_blank\">Benzoic Acid</a> quantity: 1 price: 50', 'Remarks...', 'Approval pending', 'Your request will be approved soon');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `Users`
 --
+
 DROP TABLE IF EXISTS `Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `Users` (
   `id` int(11) NOT NULL,
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `reg_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `contact` varchar(15) NOT NULL
+  `contact` varchar(15) NOT NULL,
+  `Address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Users`
 --
 
-INSERT INTO `Users` (`id`, `firstname`, `lastname`, `email`, `reg_date`, `contact`) VALUES
-(1, 'Khyati', 'Agarwal', 'test@gmail.com', '2020-11-01 22:17:05','9876543212'),
-(2, 'Jai', 'Luthra', 'test2@gmail.com', '2020-11-01 22:17:32','9182736456');
+INSERT INTO `Users` (`id`, `firstname`, `lastname`, `email`, `reg_date`, `contact`, `Address`) VALUES
+(1, 'Khyati', 'Agarwal', 'test@gmail.com', '2020-11-25 18:12:08', '9876543212', 'Flat no. 312, Sector 83, Faridabad, Haryana'),
+(2, 'Jai', 'Luthra', 'test2@gmail.com', '2020-11-01 22:17:32', '9182736456', '');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `Cart`
+--
+ALTER TABLE `Cart`
+  ADD PRIMARY KEY (`CartId`);
 
 --
 -- Indexes for table `Items`
@@ -126,6 +174,12 @@ ALTER TABLE `Users`
 --
 
 --
+-- AUTO_INCREMENT for table `Cart`
+--
+ALTER TABLE `Cart`
+  MODIFY `CartId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `Items`
 --
 ALTER TABLE `Items`
@@ -135,7 +189,7 @@ ALTER TABLE `Items`
 -- AUTO_INCREMENT for table `Orders`
 --
 ALTER TABLE `Orders`
-  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `Users`

@@ -5,6 +5,9 @@
     $conn = OpenCon();
     echo $conn->error;
 
+    $cart_delete = "DELETE FROM Cart WHERE UserId=1";
+    $cart_q = $conn->query($cart_delete);
+
     $details = $_GET['cart'];
     $remarks = $_POST['remark'];
     // echo $details;
@@ -13,7 +16,7 @@
     foreach ($a as $b){
         if($b != "")
         {
-            $insert_q = "INSERT INTO Orders (UserId, OrderDetails, Remarks) VALUES (1 , '".$b."' , '".$remarks."')";
+            $insert_q = "INSERT INTO Orders (UserId, OrderDetails, Remarks, Status, Admin_Remarks) VALUES (1 , '".$b."' , '".$remarks."', 'Approval pending', 'Your request will be approved soon')";
             $result_insert = $conn->query($insert_q);
         }
     }

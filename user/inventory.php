@@ -88,7 +88,8 @@ $(function(){
 </table>
 
 <div>
-	<button type="submit" class="button" name="submit">Go To Cart</button>
+	<button type="submit" class="button" name="submit">Add To Cart</button>
+	<button class='button' onclick="window.location.href='cart.php'">Go To Cart</button>
 </div>
 
 </form>
